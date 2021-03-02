@@ -11,6 +11,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+import logging
 import os
 
 import numpy as np
@@ -34,6 +35,8 @@ RANDOM_PORTS = list(np.random.randint(12000, 19000, 1000))
 
 if not os.path.isdir(_TEMP_PATH):
     os.mkdir(_TEMP_PATH)
+
+logging.basicConfig(level=logging.ERROR)
 
 _MISS_QUANT_DEFAULT = 'fbgemm' not in torch.backends.quantized.supported_engines
 
